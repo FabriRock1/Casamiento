@@ -1,1 +1,228 @@
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --color-oro: #c5a059;
+        --color-texto: #ffffff;
+        --fondo-claro: #1a1a1a;
+        --fondo-overlay: rgba(0, 0, 0, 0.85);
+    }
+
+    body, html { margin: 0; padding: 0; background-color: var(--fondo-claro); overflow-x: hidden; font-family: 'Montserrat', sans-serif; color: var(--color-texto); scroll-behavior: smooth; }
+
+    /* --- CONTENEDOR DEL SOBRE --- */
+    #intro-wrapper {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        display: flex; justify-content: center; align-items: center;
+        z-index: 9999; background-color: var(--fondo-claro); transition: opacity 1s;
+    }
+
+    .envelope-wrapper {
+        position: relative; 
+        width: clamp(340px, 90vw, 500px); 
+        height: clamp(240px, 60vw, 350px); 
+        background-color: #0a0a0a;
+        border: 2px solid var(--color-oro);
+        cursor: pointer; perspective: 1500px;
+        box-shadow: 0 30px 60px rgba(0,0,0,1);
+    }
+
+    .envelope-flap {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: #0f0f0f; border: 1px solid var(--color-oro);
+        z-index: 5; transform-origin: top; 
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.2);
+    }
+
+    .envelope-front {
+        position: absolute; width: 100%; height: 100%; z-index: 10;
+        background: #0a0a0a;
+        clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+        border-bottom: 2px solid var(--color-oro);
+    }
+
+    .seal {
+        position: absolute; top: 50%; left: 50%; width: 80px; height: 80px;
+        background: radial-gradient(circle, #d4af37, #8a6d3b);
+        border-radius: 50%; transform: translate(-50%, -10%);
+        z-index: 11; display: flex; align-items: center; justify-content: center;
+        font-family: 'Cinzel'; font-weight: bold; color: #4a3a1e; font-size: 1.2rem;
+        border: 3px solid #b8860b; box-shadow: 0 8px 15px rgba(0,0,0,0.7);
+        transition: all 0.5s ease;
+    }
+
+    .letter-preview {
+        position: absolute; top: 10%; left: 5%; width: 90%; height: 80%;
+        background: #fff; z-index: 2; display: flex; justify-content: center; align-items: center;
+    }
+
+    /* ANIMACIONES */
+    .envelope-wrapper.open .envelope-flap { transform: rotateX(180deg); z-index: 1; }
+    .envelope-wrapper.open .seal { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    .envelope-wrapper.open .letter-preview { animation: letterExit 2.5s forwards; }
+
+    @keyframes letterExit {
+        0% { transform: translateY(0) scale(1); }
+        40% { transform: translateY(-120%) scale(1); z-index: 20; opacity: 1; }
+        100% { transform: translateY(-80%) scale(3); opacity: 0; z-index: 20; }
+    }
+
+    /* --- CONTENIDO PRINCIPAL --- */
+    .hero-wedding {
+        display: none; opacity: 0;
+        background: linear-gradient(var(--fondo-overlay), var(--fondo-overlay)), url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');
+        background-size: cover; background-position: center; background-attachment: fixed;
+        min-height: 100vh; flex-direction: column; align-items: center; padding: 80px 20px; transition: opacity 1.5s;
+    }
+    .hero-wedding.visible { display: flex; opacity: 1; }
+    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 9vw, 5.5rem); color: var(--color-oro); margin: 10px 0; }
+
+    /* SECCIÓN ZIG-ZAG */
+    .story-section { width: 100%; max-width: 1000px; margin: 50px 0; }
+    .story-item { display: flex; align-items: center; gap: 40px; margin-bottom: 80px; width: 100%; }
+    .story-item:nth-child(even) { flex-direction: row-reverse; }
+    .story-img { flex: 1.2; border: 2px solid var(--color-oro); padding: 12px; background: rgba(255,255,255,0.05); }
+    .story-img img { width: 100%; height: auto; display: block; }
+    .story-text { flex: 0.8; padding: 20px; text-align: center; }
+    .story-text h3 { font-family: 'Cinzel', serif; color: var(--color-oro); font-size: 1.8rem; }
+    .story-text p { font-size: 1.1rem; font-style: italic; line-height: 1.8; opacity: 0.9; }
+
+    /* INFO Y CONTADORES */
+    .info-section { width: 100%; max-width: 1100px; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 60px; }
+    .event-card { background: rgba(0, 0, 0, 0.7); border: 1px solid var(--color-oro); padding: 40px 20px; flex: 1; min-width: 320px; text-align: center; border-radius: 5px; }
+    .event-title { font-family: 'Cinzel', serif; color: var(--color-oro); font-size: 1.5rem; margin-bottom: 15px; }
+    .count-num { font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--color-oro); font-weight: bold; }
+    
+    .map-btn { text-decoration: none; color: var(--color-oro); font-size: 0.8rem; display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 20px; letter-spacing: 2px; }
+    .map-icon { width: 30px; filter: sepia(1) brightness(1.2); }
+
+    .rsvp-button { margin: 60px 0; padding: 22px 60px; border: 2px solid var(--color-oro); color: white; text-decoration: none; font-family: 'Cinzel'; letter-spacing: 4px; transition: 0.4s; }
+    .rsvp-button:hover { background: var(--color-oro); color: #000; box-shadow: 0 0 30px var(--color-oro); }
+
+    @media (max-width: 768px) { .story-item, .story-item:nth-child(even) { flex-direction: column; } }
+</style>
+
+<div id="player" style="display:none"></div>
+
+<div id="intro-wrapper">
+    <div class="envelope-wrapper" id="envelope-trigger">
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="seal">K&H</div>
+        <div class="letter-preview">
+            <h2 style="font-family: 'Great Vibes'; color: #000; font-size: 1.5rem;">Invitación</h2>
+        </div>
+        <p id="hint-text" style="position: absolute; bottom: -70px; width: 100%; text-align: center; color: var(--color-oro); font-size: 0.9rem; letter-spacing: 3px; font-weight: bold;">CLICK PARA ABRIR</p>
+    </div>
+</div>
+
+<div class="hero-wedding" id="main-content">
+    <div style="font-family: 'Cinzel'; letter-spacing: 5px; opacity: 0.8;">NUESTRA BODA</div>
+    <h1 class="names">Karina & Hernan</h1>
+
+    <div class="story-section">
+        <div class="story-item">
+            <div class="story-img"><img src="https://i.postimg.cc/SscqXnPX/Whats_App_Image_2026_02_16_at_17_47_35.jpg"></div>
+            <div class="story-text">
+                <h3>El Comienzo</h3>
+                <p>"Gracias por ser parte de nuestra vida y acompañarnos en este gran paso hacia nuestro futuro juntos."</p>
+            </div>
+        </div>
+        <div class="story-item">
+            <div class="story-img"><img src="https://i.postimg.cc/7Y4911rh/Whats_App_Image_2026_02_16_at_12_44_12.jpg"></div>
+            <div class="story-text">
+                <h3>Nuestra Historia</h3>
+                <p>"Cada uno de ustedes ha sido pieza clave en nuestra historia de amor, construyendo recuerdos inolvidables."</p>
+            </div>
+        </div>
+        <div class="story-item">
+            <div class="story-img"><img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg"></div>
+            <div class="story-text">
+                <h3>La Promesa</h3>
+                <p>"No podíamos imaginar este día sin su presencia a nuestro lado para celebrar la unión de nuestras almas."</p>
+            </div>
+        </div>
+        <div class="story-item">
+            <div class="story-img"><img src="https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg"></div>
+            <div class="story-text">
+                <h3>¡A Celebrar!</h3>
+                <p>"¡Nos vemos pronto para celebrar, reír y crear nuevos recuerdos que durarán para toda la eternidad!"</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="event-card">
+            <div class="event-title">Boda Civil</div>
+            <div style="font-size: 1.2rem; letter-spacing: 3px;">16 ABRIL 2026</div>
+            <div style="display: flex; justify-content: center; gap: 20px; margin: 25px 0;">
+                <div><span class="count-num" id="d-civil">00</span><br><small>DÍAS</small></div>
+                <div><span class="count-num" id="h-civil">00</span><br><small>HRS</small></div>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="map-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" class="map-icon"> VER UBICACIÓN
+            </a>
+        </div>
+
+        <div class="event-card">
+            <div class="event-title">Boda Religiosa</div>
+            <div style="font-size: 1.2rem; letter-spacing: 3px;">29 ABRIL 2026</div>
+            <div style="display: flex; justify-content: center; gap: 20px; margin: 25px 0;">
+                <div><span class="count-num" id="d-iglesia">00</span><br><small>DÍAS</small></div>
+                <div><span class="count-num" id="h-iglesia">00</span><br><small>HRS</small></div>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="map-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" class="map-icon"> VER UBICACIÓN
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia." class="rsvp-button">CONFIRMAR ASISTENCIA</a>
+    <div style="height: 100px;"></div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '0', width: '0', videoId: 'xwJ1ki8CY9I',
+            playerVars: { 'autoplay': 0, 'controls': 0 },
+            events: { 'onStateChange': (e) => {
+                setInterval(() => { if(player.getCurrentTime() >= 19) player.stopVideo(); }, 500);
+            }}
+        });
+    }
+
+    const envelope = document.getElementById('envelope-trigger');
+    const intro = document.getElementById('intro-wrapper');
+    const content = document.getElementById('main-content');
+
+    envelope.addEventListener('click', () => {
+        if(player) player.playVideo();
+        envelope.classList.add('open');
+        setTimeout(() => {
+            intro.style.opacity = '0';
+            content.classList.add('visible');
+            startTimers();
+        }, 2200);
+        setTimeout(() => { intro.style.display = 'none'; }, 3200);
+    });
+
+    function startTimers() {
+        const update = (date, prefix) => {
+            const target = new Date(date).getTime();
+            setInterval(() => {
+                const dist = target - new Date().getTime();
+                if (dist < 0) return;
+                document.getElementById('d-'+prefix).innerText = Math.floor(dist / 86400000);
+                document.getElementById('h-'+prefix).innerText = Math.floor((dist % 86400000) / 3600000);
+            }, 1000);
+        };
+        update("April 16, 2026 10:00:00", "civil");
+        update("April 29, 2026 18:00:00", "iglesia");
+    }
+</script>
 

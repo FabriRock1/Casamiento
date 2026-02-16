@@ -191,6 +191,7 @@
             height: '0', width: '0', videoId: 'T295KGDxg9s',
             playerVars: { 'autoplay': 0, 'controls': 0 },
             events: { 'onStateChange': (e) => {
+                // Detiene la canción a los 19 segundos como configuraste previamente
                 setInterval(() => { if(player.getCurrentTime() >= 19) player.stopVideo(); }, 500);
             }}
         });
@@ -201,7 +202,8 @@
     const content = document.getElementById('main-content');
 
     envelope.addEventListener('click', () => {
-        if(player) player.playVideo();
+        // Reproduce la música al hacer click en el sobre
+        if(player && player.playVideo) player.playVideo();
         envelope.classList.add('open');
         setTimeout(() => {
             intro.style.opacity = '0';

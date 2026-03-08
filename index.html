@@ -6,7 +6,6 @@
         --color-texto: #ffffff;
         --fondo-claro: #1a1a1a;
         --fondo-overlay: rgba(0, 0, 0, 0.65);
-        /* Overlay más oscuro para las imágenes de las mesas */
         --fondo-overlay-mesas: rgba(0, 0, 0, 0.75); 
     }
 
@@ -72,7 +71,12 @@
         background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); z-index: 1;
     }
 
-    /* Estilo específico para overlays de las imágenes de mesas */
+    /* CORRECCIÓN: Ajuste para que se vean las personas */
+    section.mesa-bg {
+        background-position: top center; /* Muestra la parte superior de la foto donde están las caras */
+        background-size: cover;
+    }
+
     section.mesa-bg::before {
         background: var(--fondo-overlay-mesas);
     }
@@ -105,6 +109,7 @@
         border: 1px solid var(--color-oro); 
         padding: 30px 20px; border-radius: 15px;
         max-width: 450px; margin: 0 auto;
+        margin-top: 10vh; /* Baja un poco el temporizador para no tapar caras */
     }
     
     .count-num { font-family: 'Cinzel', serif; font-size: 2.8rem; color: var(--color-oro); font-weight: bold; }

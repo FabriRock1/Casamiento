@@ -4,7 +4,7 @@
     :root {
         --color-oro: #c5a059;
         --color-texto: #ffffff;
-        --fondo-overlay: rgba(0, 0, 0, 0.6);
+        --fondo-overlay: rgba(0, 0, 0, 0.65);
     }
 
     body, html { 
@@ -55,7 +55,7 @@
 
     /* --- SLIDER --- */
     .slider-container { display: none; width: 100vw; height: 100vh; overflow: hidden; position: relative; }
-    .slider-track { display: flex; width: 500vw; height: 100%; transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1); }
+    .slider-track { display: flex; width: 700vw; height: 100%; transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1); }
 
     section {
         width: 100vw; height: 100vh;
@@ -66,65 +66,62 @@
 
     section::before {
         content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); z-index: 1;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); z-index: 1;
     }
 
     /* --- ANIMACIONES DE CONTENIDO --- */
     .content-box { 
         position: relative; z-index: 2; max-width: 800px; 
-        opacity: 0; transform: translateY(30px); transition: all 1s ease 0.4s;
+        opacity: 0; transform: translateY(40px); transition: all 1s ease 0.4s;
     }
 
-    /* Clase activa para disparar la animación al entrar al slide */
     .active .content-box { opacity: 1; transform: translateY(0); }
 
     /* --- ESTILOS VISUALES --- */
-    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 6rem); color: var(--color-oro); margin: 10px 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-    h3 { font-family: 'Cinzel', serif; color: var(--color-oro); font-size: clamp(1.5rem, 5vw, 2.2rem); margin-bottom: 15px; }
-    p { font-size: 1.1rem; line-height: 1.6; font-weight: 300; font-style: italic; }
+    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5.5rem); color: var(--color-oro); margin: 10px 0; }
+    h3 { font-family: 'Cinzel', serif; color: var(--color-oro); font-size: clamp(1.4rem, 4vw, 2rem); margin-bottom: 15px; letter-spacing: 3px; }
+    p { font-size: 1.15rem; line-height: 1.7; font-weight: 300; font-style: italic; max-width: 600px; margin: 0 auto; }
 
     .story-img-frame {
-        width: clamp(260px, 45vw, 380px);
+        width: clamp(240px, 40vw, 350px);
         aspect-ratio: 1 / 1;
         object-fit: cover;
-        border: 8px solid white;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        border: 6px solid white;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         margin-bottom: 25px;
-        transform: rotate(-2deg);
     }
 
     .event-card { 
-        background: rgba(255, 255, 255, 0.1); 
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(197, 160, 89, 0.5); 
-        padding: 40px 20px; border-radius: 15px; 
+        background: rgba(255, 255, 255, 0.08); 
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--color-oro); 
+        padding: 30px 20px; border-radius: 15px;
+        max-width: 450px; margin: 0 auto;
     }
     
-    .count-num { font-family: 'Cinzel', serif; font-size: 3rem; color: var(--color-oro); font-weight: bold; }
+    .count-num { font-family: 'Cinzel', serif; font-size: 2.8rem; color: var(--color-oro); font-weight: bold; }
 
     /* --- NAVEGACIÓN --- */
     .nav-btn {
         position: fixed; top: 50%; transform: translateY(-50%);
-        background: none; border: 2px solid var(--color-oro);
-        color: var(--color-oro); width: 50px; height: 50px; cursor: pointer; z-index: 100;
-        font-family: 'Cinzel'; border-radius: 50%; transition: 0.3s; font-size: 1.5rem;
+        background: rgba(0,0,0,0.4); border: 1px solid var(--color-oro);
+        color: var(--color-oro); width: 45px; height: 45px; cursor: pointer; z-index: 100;
+        border-radius: 50%; transition: 0.3s; font-size: 1.2rem;
     }
-    .nav-btn:hover { background: var(--color-oro); color: black; }
     #prevBtn { left: 20px; display: none; }
     #nextBtn { right: 20px; }
 
     .rsvp-button { 
         padding: 18px 45px; background: var(--color-oro); color: #000; 
         text-decoration: none; font-family: 'Cinzel'; font-weight: bold;
-        letter-spacing: 2px; display: inline-block; margin-top: 30px;
+        letter-spacing: 2px; display: inline-block; margin-top: 25px;
         border-radius: 50px; transition: 0.3s;
     }
-    .rsvp-button:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--color-oro); }
 
     @media (max-width: 600px) {
-        .nav-btn { top: auto; bottom: 30px; transform: none; width: 45px; height: 45px; }
-        #prevBtn { left: 30px; }
-        #nextBtn { right: 30px; }
+        .nav-btn { top: auto; bottom: 40px; transform: none; }
+        #prevBtn { left: 25%; }
+        #nextBtn { right: 25%; }
     }
 </style>
 
@@ -135,7 +132,7 @@
         <div class="envelope-flap"></div>
         <div class="envelope-front"></div>
         <div class="seal">K&H</div>
-        <p style="position: absolute; bottom: -70px; width: 100%; text-align: center; color: var(--color-oro); font-size: 0.9rem; letter-spacing: 3px; font-weight: bold;">TOCA PARA ABRIR</p>
+        <p style="position: absolute; bottom: -70px; width: 100%; text-align: center; color: var(--color-oro); font-size: 0.8rem; letter-spacing: 3px;">TOCA PARA ABRIR</p>
     </div>
 </div>
 
@@ -147,56 +144,72 @@
         
         <section class="active" style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
             <div class="content-box">
-                <div style="font-family: 'Cinzel'; letter-spacing: 7px; font-size: 0.9rem;">ESTÁS INVITADO A</div>
+                <div style="font-family: 'Cinzel'; letter-spacing: 5px; font-size: 0.8rem; opacity: 0.8;">NUESTRA BODA</div>
                 <h1 class="names">Karina & Hernan</h1>
-                <p>"El amor no es solo mirarse el uno al otro,<br>es mirar juntos en la misma dirección."</p>
+                <p>¡Bienvenidos a este gran día!</p>
             </div>
         </section>
 
         <section style="background-image: url('https://i.postimg.cc/SscqXnPX/Whats_App_Image_2026_02_16_at_17_47_35.jpg');">
             <div class="content-box">
-                <img src="https://i.postimg.cc/SscqXnPX/Whats_App_Image_2026_02_16_at_17_47_35.jpg" class="story-img-frame">
-                <h3>Nuestra Historia</h3>
-                <p>"Hace un tiempo iniciamos esta aventura y con amor formamos una hermosa familia. Hoy decidimos dar el siguiente gran paso."</p>
-            </div>
-        </section>
-
-        <section style="background-image: url('https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg');">
-            <div class="content-box">
-                <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(2deg);">
-                <h3>La Promesa</h3>
-                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes que han sido testigos y parte fundamental de nuestra vida."</p>
+                <img src="https://i.postimg.cc/SscqXnPX/Whats_App_Image_2026_02_16_at_17_47_35.jpg" class="story-img-frame" style="transform: rotate(-2deg);">
+                <h3>El Comienzo</h3>
+                <p>"Hace un tiempo iniciamos esta aventura y con amor formamos una familia."</p>
             </div>
         </section>
 
         <section style="background-image: url('https://i.postimg.cc/7Y4911rh/Whats_App_Image_2026_02_16_at_12_44_12.jpg');">
             <div class="content-box">
-                <div class="event-card">
-                    <h3>Boda Civil</h3>
-                    <p>Nos unimos ante la ley</p>
-                    <div style="font-size: 1.5rem; font-family: 'Cinzel'; margin: 15px 0;">16 DE ABRIL, 2026</div>
-                    <div style="display: flex; justify-content: center; gap: 30px; margin: 20px 0;">
-                        <div><span class="count-num" id="d-civil">00</span><br><small>DÍAS</small></div>
-                        <div><span class="count-num" id="h-civil">00</span><br><small>HRS</small></div>
-                    </div>
-                    <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-weight:bold; font-size:0.9rem;">📍 VER MAPA</a>
-                </div>
+                <img src="https://i.postimg.cc/7Y4911rh/Whats_App_Image_2026_02_16_at_12_44_12.jpg" class="story-img-frame" style="transform: rotate(2deg);">
+                <h3>Nuestra Historia</h3>
+                <p>"Aprendimos que ser compañeros es la clave para elegirnos día a día."</p>
+            </div>
+        </section>
+
+        <section style="background-image: url('https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg');">
+            <div class="content-box">
+                <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(-1deg);">
+                <h3>La Promesa</h3>
+                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes que son parte de nuestra historia y nuestra vida."</p>
             </div>
         </section>
 
         <section style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
             <div class="content-box">
+                <img src="https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg" class="story-img-frame" style="transform: rotate(1deg);">
+                <h3>¡A Celebrar!</h3>
+                <p>"¡Nos vemos pronto para celebrar, reír y crear nuevos recuerdos inolvidables!"</p>
+            </div>
+        </section>
+
+        <section style="background-color: #111;">
+            <div class="content-box">
+                <div class="event-card">
+                    <h3>Boda Civil</h3>
+                    <div style="font-size: 1.4rem; font-family: 'Cinzel'; margin-bottom: 15px;">16 ABRIL 2026</div>
+                    <div style="display: flex; justify-content: center; gap: 20px;">
+                        <div><span class="count-num" id="d-civil">00</span><br><small>DÍAS</small></div>
+                        <div><span class="count-num" id="h-civil">00</span><br><small>HRS</small></div>
+                    </div>
+                    <br>
+                    <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-size:0.9rem;">📍 VER UBICACIÓN</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: #0a0a0a;">
+            <div class="content-box">
                 <div class="event-card">
                     <h3>Boda Religiosa</h3>
-                    <p>Nuestra bendición ante Dios</p>
-                    <div style="font-size: 1.5rem; font-family: 'Cinzel'; margin: 15px 0;">29 DE ABRIL, 2026</div>
-                    <div style="display: flex; justify-content: center; gap: 30px; margin: 20px 0;">
+                    <div style="font-size: 1.4rem; font-family: 'Cinzel'; margin-bottom: 15px;">29 ABRIL 2026</div>
+                    <div style="display: flex; justify-content: center; gap: 20px;">
                         <div><span class="count-num" id="d-iglesia">00</span><br><small>DÍAS</small></div>
                         <div><span class="count-num" id="h-iglesia">00</span><br><small>HRS</small></div>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-weight:bold; font-size:0.9rem;">📍 VER MAPA</a>
+                    <br>
+                    <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-size:0.9rem;">📍 VER UBICACIÓN</a>
                 </div>
-                <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia con mucha alegría." class="rsvp-button">CONFIRMAR ASISTENCIA</a>
+                <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia." class="rsvp-button">CONFIRMAR ASISTENCIA</a>
             </div>
         </section>
 
@@ -225,6 +238,7 @@
     const prevBtn = document.getElementById('prevBtn');
 
     let currentSlide = 0;
+    const totalSlides = 7;
 
     envelope.addEventListener('click', () => {
         if(player && player.playVideo) player.playVideo();
@@ -239,18 +253,12 @@
 
     function updateSlider() {
         track.style.transform = `translateX(-${currentSlide * 100}vw)`;
-        
-        // Manejo de animaciones de entrada
-        sections.forEach((s, index) => {
-            if(index === currentSlide) s.classList.add('active');
-            else s.classList.remove('active');
-        });
-
+        sections.forEach((s, i) => i === currentSlide ? s.classList.add('active') : s.classList.remove('active'));
         prevBtn.style.display = currentSlide === 0 ? 'none' : 'block';
-        nextBtn.style.display = currentSlide === 4 ? 'none' : 'block';
+        nextBtn.style.display = currentSlide === totalSlides - 1 ? 'none' : 'block';
     }
 
-    nextBtn.addEventListener('click', () => { if(currentSlide < 4) { currentSlide++; updateSlider(); } });
+    nextBtn.addEventListener('click', () => { if(currentSlide < totalSlides - 1) { currentSlide++; updateSlider(); } });
     prevBtn.addEventListener('click', () => { if(currentSlide > 0) { currentSlide--; updateSlider(); } });
 
     function startTimers() {

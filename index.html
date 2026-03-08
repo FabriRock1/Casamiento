@@ -65,104 +65,68 @@
 
     section::before {
         content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); z-index: 1;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); z-index: 1;
     }
 
-    /* --- CONTENEDOR CENTRALIZADO --- */
+    /* --- CONTENIDO --- */
     .content-box { 
-        position: relative; 
-        z-index: 2; 
-        width: 100%;
-        max-width: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 0; 
-        transform: translateY(40px); 
-        transition: all 1s ease 0.4s;
+        position: relative; z-index: 2; width: 100%; max-width: 500px;
+        opacity: 0; transform: translateY(30px); transition: all 1s ease 0.4s;
     }
     .active .content-box { opacity: 1; transform: translateY(0); }
 
-    .counters-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        margin-bottom: 30px; /* Espacio antes del botón */
-    }
-
-    .counters-row {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .mini-card {
-        background: rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--color-oro);
-        padding: 15px 10px;
-        border-radius: 12px;
-        flex: 1;
-        max-width: 180px;
-    }
-
-    .mini-card.salon-card {
-        max-width: 220px;
-    }
-
-    .mini-card h3 { margin: 0 0 5px 0; font-size: 0.9rem; letter-spacing: 1px; color: var(--color-oro); }
-    .date-text { font-size: 0.6rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 10px; display: block; }
-
-    .timer-row { display: flex; justify-content: center; gap: 8px; }
-    .count-num { font-family: 'Cinzel', serif; font-size: 1.4rem; color: #fff; font-weight: bold; display: block; }
-    .timer-item small { font-size: 0.5rem; color: var(--color-oro); letter-spacing: 1px; }
-
-    /* --- ESTILOS GENERALES --- */
-    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); color: var(--color-oro); margin: 0 0 20px 0; }
+    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); color: var(--color-oro); margin: 0 0 10px 0; }
     
     .story-img-frame {
-        width: clamp(200px, 30vw, 280px);
+        width: clamp(200px, 40vw, 280px);
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border: 5px solid white;
         box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
+    /* --- CONTADORES PIRÁMIDE --- */
+    .counters-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .counters-row { display: flex; justify-content: center; gap: 10px; width: 100%; }
+    .mini-card {
+        background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px);
+        border: 1px solid var(--color-oro); padding: 12px 5px; border-radius: 12px; flex: 1; max-width: 170px;
+    }
+    .mini-card.salon-card { max-width: 200px; }
+    .mini-card h3 { margin: 0; font-size: 0.85rem; letter-spacing: 1px; color: var(--color-oro); font-family: 'Cinzel'; }
+    .date-text { font-size: 0.55rem; opacity: 0.8; margin-bottom: 8px; display: block; }
+    .timer-row { display: flex; justify-content: center; gap: 5px; }
+    .count-num { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #fff; font-weight: bold; display: block; }
+    .timer-item small { font-size: 0.45rem; color: var(--color-oro); }
+
+    /* --- BOTONES --- */
     .nav-btn {
         position: fixed; top: 50%; transform: translateY(-50%);
         background: rgba(0,0,0,0.4); border: 1px solid var(--color-oro);
         color: var(--color-oro); width: 45px; height: 45px; cursor: pointer; z-index: 100;
-        border-radius: 50%; transition: 0.3s; font-size: 1.2rem;
+        border-radius: 50%; font-size: 1.2rem;
     }
     #prevBtn { left: 15px; display: none; }
     #nextBtn { right: 15px; }
 
     .rsvp-button { 
-        padding: 18px 45px; 
-        background: var(--color-oro); 
-        color: #000; 
-        text-decoration: none; 
-        font-family: 'Cinzel'; 
-        font-weight: bold;
-        letter-spacing: 2px; 
-        border-radius: 50px; 
-        transition: 0.3s; 
-        font-size: 0.85rem;
-        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        padding: 15px 35px; background: var(--color-oro); color: #000; 
+        text-decoration: none; font-family: 'Cinzel'; font-weight: bold;
+        letter-spacing: 2px; border-radius: 50px; font-size: 0.8rem;
+        display: inline-block;
     }
-    .rsvp-button:hover { transform: scale(1.05); background: #d4af37; }
 
     @media (max-width: 600px) {
         .nav-btn { top: auto; bottom: 30px; transform: none; }
-        #prevBtn { left: 15%; }
-        #nextBtn { right: 15%; }
-        .mini-card { padding: 10px 5px; }
-        .count-num { font-size: 1.1rem; }
+        #prevBtn { left: 15%; } #nextBtn { right: 15%; }
     }
 </style>
 
@@ -187,7 +151,7 @@
             <div class="content-box">
                 <div style="font-family: 'Cinzel'; letter-spacing: 5px; font-size: 0.7rem; color: var(--color-oro);">NUESTRA BODA</div>
                 <h1 class="names">Karina & Hernan</h1>
-                <p style="font-style: italic;">"¡Bienvenidos a este gran día!"</p>
+                <p>"¡Bienvenidos a este gran día!"</p>
             </div>
         </section>
 
@@ -195,13 +159,21 @@
             <div class="content-box">
                 <img src="https://i.postimg.cc/SscqXnPX/Whats_App_Image_2026_02_16_at_17_47_35.jpg" class="story-img-frame" style="transform: rotate(-2deg);">
                 <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">El Comienzo</h3>
-                <p>"Hace un tiempo iniciamos esta aventura y formamos una familia."</p>
+                <p>"Hace un tiempo iniciamos esta aventura y con amor formamos una familia."</p>
+            </div>
+        </section>
+
+        <section style="background-image: url('https://i.postimg.cc/7Y4911rh/Whats_App_Image_2026_02_16_at_12_44_12.jpg');">
+            <div class="content-box">
+                <img src="https://i.postimg.cc/7Y4911rh/Whats_App_Image_2026_02_16_at_12_44_12.jpg" class="story-img-frame" style="transform: rotate(2deg);">
+                <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">Nuestra Historia</h3>
+                <p>"Aprendimos que ser compañeros es la clave para elegirnos día a día."</p>
             </div>
         </section>
 
         <section style="background-image: url('https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg');">
             <div class="content-box">
-                <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(2deg);">
+                <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(-1deg);">
                 <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">La Promesa</h3>
                 <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes."</p>
             </div>
@@ -210,50 +182,45 @@
         <section style="background-image: url('https://i.postimg.cc/yYXR4jfS/NUM_MESA_5.jpg');">
             <div class="content-box">
                 <div class="counters-wrapper">
-                    
                     <div class="counters-row">
                         <div class="mini-card">
                             <span class="date-text">16 ABR | 11:00 HS</span>
                             <h3>CIVIL</h3>
                             <div class="timer-row">
-                                <div class="timer-item"><span class="count-num" id="d-civil">00</span><small>DÍAS</small></div>
-                                <div class="timer-item"><span class="count-num" id="h-civil">00</span><small>HRS</small></div>
-                                <div class="timer-item"><span class="count-num" id="s-civil">00</span><small>SEG</small></div>
+                                <div class="timer-item"><span class="count-num" id="d-civil">00</span><small>D</small></div>
+                                <div class="timer-item"><span class="count-num" id="h-civil">00</span><small>H</small></div>
+                                <div class="timer-item"><span class="count-num" id="s-civil">00</span><small>S</small></div>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <span class="date-text">19 ABR | 11:00 HS</span>
                             <h3>IGLESIA</h3>
                             <div class="timer-row">
-                                <div class="timer-item"><span class="count-num" id="d-iglesia">00</span><small>DÍAS</small></div>
-                                <div class="timer-item"><span class="count-num" id="h-iglesia">00</span><small>HRS</small></div>
-                                <div class="timer-item"><span class="count-num" id="s-iglesia">00</span><small>SEG</small></div>
+                                <div class="timer-item"><span class="count-num" id="d-iglesia">00</span><small>D</small></div>
+                                <div class="timer-item"><span class="count-num" id="h-iglesia">00</span><small>H</small></div>
+                                <div class="timer-item"><span class="count-num" id="s-iglesia">00</span><small>S</small></div>
                             </div>
                         </div>
                     </div>
-
                     <div class="mini-card salon-card">
                         <span class="date-text">19 ABR | 12:00 HS</span>
                         <h3>SALÓN</h3>
                         <div class="timer-row">
-                            <div class="timer-item"><span class="count-num" id="d-salon">00</span><small>DÍAS</small></div>
-                            <div class="timer-item"><span class="count-num" id="h-salon">00</span><small>HRS</small></div>
-                            <div class="timer-item"><span class="count-num" id="s-salon">00</span><small>SEG</small></div>
+                            <div class="timer-item"><span class="count-num" id="d-salon">00</span><small>D</small></div>
+                            <div class="timer-item"><span class="count-num" id="h-salon">00</span><small>H</small></div>
+                            <div class="timer-item"><span class="count-num" id="s-salon">00</span><small>S</small></div>
                         </div>
                     </div>
-
                 </div>
-
                 <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia." class="rsvp-button">CONFIRMAR ASISTENCIA</a>
             </div>
         </section>
 
         <section style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
             <div class="content-box">
-                <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">¡Te esperamos!</h3>
-                <p>"Para celebrar juntos este nuevo capítulo."</p>
-                <p style="font-size: 0.7rem; margin-top: 30px; opacity: 0.7;">Karina & Hernan - 2026</p>
+                <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">¡A Celebrar!</h3>
+                <p>"¡Nos vemos pronto para celebrar y crear nuevos recuerdos!"</p>
+                <p style="font-size: 0.7rem; margin-top: 40px; color: var(--color-oro); letter-spacing: 4px;">KARINA & HERNAN</p>
             </div>
         </section>
 
@@ -282,7 +249,7 @@
     const prevBtn = document.getElementById('prevBtn');
 
     let currentSlide = 0;
-    const totalSlides = 5;
+    const totalSlides = 6;
 
     envelope.addEventListener('click', () => {
         if(player && player.playVideo) player.playVideo();
@@ -291,8 +258,8 @@
             intro.style.opacity = '0';
             slider.style.display = 'block';
             startTimers();
-        }, 1500);
-        setTimeout(() => { intro.style.display = 'none'; }, 2500);
+        }, 1200);
+        setTimeout(() => { intro.style.display = 'none'; }, 2200);
     });
 
     function updateSlider() {

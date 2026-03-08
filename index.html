@@ -68,14 +68,13 @@
         background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); z-index: 1;
     }
 
-    /* --- CONTENIDO --- */
     .content-box { 
-        position: relative; z-index: 2; width: 100%; max-width: 500px;
+        position: relative; z-index: 2; width: 100%;
         opacity: 0; transform: translateY(30px); transition: all 1s ease 0.4s;
     }
     .active .content-box { opacity: 1; transform: translateY(0); }
 
-    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 10vw, 5rem); color: var(--color-oro); margin: 0 0 10px 0; }
+    .names { font-family: 'Great Vibes', cursive; font-size: clamp(3.5rem, 12vw, 5rem); color: var(--color-oro); margin: 0 0 10px 0; }
     
     .story-img-frame {
         width: clamp(200px, 40vw, 280px);
@@ -86,43 +85,54 @@
         margin-bottom: 20px;
     }
 
-    /* --- CONTADORES UNIFICADOS --- */
+    /* --- CAJAS UNIFICADAS --- */
     .counters-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        width: 100%;
-        margin-bottom: 25px;
     }
-    .counters-row { display: flex; justify-content: center; gap: 12px; width: 100%; }
-    
-    .mini-card {
-        background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
-        border: 1px solid var(--color-oro); 
-        padding: 20px 10px; /* Más largo verticalmente */
-        border-radius: 12px; 
-        flex: 1; 
-        max-width: 200px; /* Tamaño unificado */
-        min-height: 140px; /* Asegura que tengan el mismo alto */
-        display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    .counters-row { display: flex; justify-content: center; gap: 15px; }
+
+    .timer-card {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--color-oro);
+        border-radius: 12px;
+        padding: 25px 10px;
+        /* MISMO TAMAÑO PARA TODAS */
+        width: 180px; 
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
     }
 
-    .mini-card h3 { margin: 0; font-size: 0.9rem; letter-spacing: 1.5px; color: var(--color-oro); font-family: 'Cinzel'; }
-    .date-text { font-size: 0.65rem; font-weight: bold; margin-bottom: 10px; display: block; }
+    .timer-card h3 { margin: 0; font-size: 0.95rem; letter-spacing: 2px; color: var(--color-oro); font-family: 'Cinzel'; }
+    .date-text { font-size: 0.65rem; font-weight: bold; margin: 8px 0 12px 0; display: block; }
     
-    .timer-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
-    .count-num { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #fff; font-weight: bold; display: block; }
-    .timer-item small { font-size: 0.5rem; color: var(--color-oro); letter-spacing: 1px; }
+    .timer-values { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+    .count-num { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #fff; font-weight: bold; line-height: 1; }
+    .timer-item small { font-size: 0.5rem; color: var(--color-oro); display: block; margin-top: 2px; }
 
     .map-link {
-        font-size: 0.6rem; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.4);
-        padding: 5px 12px; border-radius: 4px; transition: 0.3s;
-        letter-spacing: 1px;
+        font-size: 0.55rem; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.4);
+        padding: 6px 10px; border-radius: 4px; transition: 0.3s; letter-spacing: 1px;
+        white-space: nowrap; font-weight: bold;
     }
     .map-link:hover { background: var(--color-oro); color: #000; border-color: var(--color-oro); }
 
-    /* --- BOTONES --- */
+    /* --- BOTÓN CONFIRMACIÓN --- */
+    .rsvp-button { 
+        margin-top: 30px;
+        padding: 18px 50px; background: var(--color-oro); color: #000; 
+        text-decoration: none; font-family: 'Cinzel'; font-weight: bold;
+        letter-spacing: 2px; border-radius: 50px; font-size: 0.9rem;
+        display: inline-block; box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
+    }
+
     .nav-btn {
         position: fixed; top: 50%; transform: translateY(-50%);
         background: rgba(0,0,0,0.4); border: 1px solid var(--color-oro);
@@ -132,18 +142,11 @@
     #prevBtn { left: 15px; display: none; }
     #nextBtn { right: 15px; }
 
-    .rsvp-button { 
-        padding: 18px 45px; background: var(--color-oro); color: #000; 
-        text-decoration: none; font-family: 'Cinzel'; font-weight: bold;
-        letter-spacing: 2px; border-radius: 50px; font-size: 0.9rem;
-        display: inline-block; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
-    }
-
     @media (max-width: 600px) {
+        .timer-card { width: 165px; min-height: 175px; padding: 20px 8px; }
+        .count-num { font-size: 1.3rem; }
         .nav-btn { top: auto; bottom: 30px; transform: none; }
-        #prevBtn { left: 15%; } #nextBtn { right: 15%; }
-        .mini-card { max-width: 160px; padding: 15px 5px; }
-        .count-num { font-size: 1.2rem; }
+        #prevBtn { left: 10%; } #nextBtn { right: 10%; }
     }
 </style>
 
@@ -192,7 +195,7 @@
             <div class="content-box">
                 <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(-1deg);">
                 <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">La Promesa</h3>
-                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes."</p>
+                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes que son parte de nuestra vifa y nuestra historia."</p>
             </div>
         </section>
 
@@ -200,36 +203,36 @@
             <div class="content-box">
                 <div class="counters-wrapper">
                     <div class="counters-row">
-                        <div class="mini-card">
+                        <div class="timer-card">
                             <h3>CIVIL</h3>
                             <span class="date-text">16 ABR | 11:00 HS</span>
-                            <div class="timer-row">
+                            <div class="timer-values">
                                 <div class="timer-item"><span class="count-num" id="d-civil">00</span><small>D</small></div>
                                 <div class="timer-item"><span class="count-num" id="h-civil">00</span><small>H</small></div>
                                 <div class="timer-item"><span class="count-num" id="s-civil">00</span><small>S</small></div>
                             </div>
-                            <a href="https://maps.app.goo.gl/6K2DEUN2sanaZL7F8" target="_blank" class="map-link">CÓMO LLEGAR</a>
+                            <a href="https://maps.app.goo.gl/6K2DEUN2sanaZL7F8" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                         </div>
-                        <div class="mini-card">
+                        <div class="timer-card">
                             <h3>IGLESIA</h3>
                             <span class="date-text">19 ABR | 11:00 HS</span>
-                            <div class="timer-row">
+                            <div class="timer-values">
                                 <div class="timer-item"><span class="count-num" id="d-iglesia">00</span><small>D</small></div>
                                 <div class="timer-item"><span class="count-num" id="h-iglesia">00</span><small>H</small></div>
                                 <div class="timer-item"><span class="count-num" id="s-iglesia">00</span><small>S</small></div>
                             </div>
-                            <a href="https://maps.app.goo.gl/Y7ozCYiT5zGF3DdH8" target="_blank" class="map-link">CÓMO LLEGAR</a>
+                            <a href="https://maps.app.goo.gl/Y7ozCYiT5zGF3DdH8" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                         </div>
                     </div>
-                    <div class="mini-card">
+                    <div class="timer-card">
                         <h3>SALÓN</h3>
                         <span class="date-text">19 ABR | 12:00 HS</span>
-                        <div class="timer-row">
+                        <div class="timer-values">
                             <div class="timer-item"><span class="count-num" id="d-salon">00</span><small>D</small></div>
                             <div class="timer-item"><span class="count-num" id="h-salon">00</span><small>H</small></div>
                             <div class="timer-item"><span class="count-num" id="s-salon">00</span><small>S</small></div>
                         </div>
-                        <a href="https://maps.app.goo.gl/xscq1fGka45GGZWBA" target="_blank" class="map-link">CÓMO LLEGAR</a>
+                        <a href="https://maps.app.goo.gl/xscq1fGka45GGZWBA" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                     </div>
                 </div>
                 <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia." class="rsvp-button">CONFIRMAR ASISTENCIA</a>

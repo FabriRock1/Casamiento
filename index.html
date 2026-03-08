@@ -198,11 +198,12 @@
         <section class="mesa-bg" style="background-image: url('https://i.postimg.cc/5NqzdgPz/NUM_MESA_10.jpg');">
             <div class="content-box">
                 <div class="event-card">
-                    <h3>Boda Civil</h3>
+                    <h3>Civil</h3>
                     <div style="font-size: 1.4rem; font-family: 'Cinzel'; margin-bottom: 15px;">16 ABRIL 2026</div>
                     <div style="display: flex; justify-content: center; gap: 20px;">
                         <div><span class="count-num" id="d-civil">00</span><br><small>DÍAS</small></div>
                         <div><span class="count-num" id="h-civil">00</span><br><small>HRS</small></div>
+                         <div><span class="count-num" id="h-iglesia">00</span><br><small>SEG</small></div>
                     </div>
                     <br>
                     <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-size:0.9rem;">📍 VER UBICACIÓN</a>
@@ -213,11 +214,12 @@
         <section class="mesa-bg" style="background-image: url('https://i.postimg.cc/yYXR4jfS/NUM_MESA_5.jpg');">
             <div class="content-box">
                 <div class="event-card">
-                    <h3>Boda Religiosa</h3>
-                    <div style="font-size: 1.4rem; font-family: 'Cinzel'; margin-bottom: 15px;">29 ABRIL 2026</div>
+                    <h3>Iglesia</h3>
+                    <div style="font-size: 1.4rem; font-family: 'Cinzel'; margin-bottom: 15px;">19 ABRIL 2026</div>
                     <div style="display: flex; justify-content: center; gap: 20px;">
                         <div><span class="count-num" id="d-iglesia">00</span><br><small>DÍAS</small></div>
                         <div><span class="count-num" id="h-iglesia">00</span><br><small>HRS</small></div>
+                        <div><span class="count-num" id="h-iglesia">00</span><br><small>SEG</small></div>
                     </div>
                     <br>
                     <a href="https://maps.google.com" target="_blank" style="color:var(--color-oro); text-decoration:none; font-size:0.9rem;">📍 VER UBICACIÓN</a>
@@ -284,7 +286,7 @@
                 document.getElementById('h-'+prefix).innerText = Math.floor((dist % 86400000) / 3600000);
             }, 1000);
         };
-        update("April 16, 2026 10:00:00", "civil");
-        update("April 29, 2026 18:00:00", "iglesia");
+        update("April 16, 2026 11:00:00", "civil");
+        update("April 19, 2026 11:00:00", "iglesia");
     }
 </script>

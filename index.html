@@ -1,4 +1,10 @@
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karina & Hernán - Nuestra Boda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
     :root {
@@ -85,28 +91,15 @@
         margin-bottom: 20px;
     }
 
-    /* --- CAJAS UNIFICADAS --- */
-    .counters-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
+    /* --- CAJAS --- */
+    .counters-wrapper { display: flex; flex-direction: column; align-items: center; gap: 15px; }
     .counters-row { display: flex; justify-content: center; gap: 15px; }
 
     .timer-card {
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--color-oro);
-        border-radius: 12px;
-        padding: 25px 10px;
-        /* MISMO TAMAÑO PARA TODAS */
-        width: 180px; 
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px);
+        border: 1px solid var(--color-oro); border-radius: 12px;
+        padding: 25px 10px; width: 180px; min-height: 180px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
         box-sizing: border-box;
     }
 
@@ -124,13 +117,18 @@
     }
     .map-link:hover { background: var(--color-oro); color: #000; border-color: var(--color-oro); }
 
-    /* --- BOTÓN CONFIRMACIÓN --- */
     .rsvp-button { 
-        margin-top: 30px;
-        padding: 18px 50px; background: var(--color-oro); color: #000; 
+        padding: 18px 40px; background: var(--color-oro); color: #000; 
         text-decoration: none; font-family: 'Cinzel'; font-weight: bold;
         letter-spacing: 2px; border-radius: 50px; font-size: 0.9rem;
         display: inline-block; box-shadow: 0 5px 20px rgba(197, 160, 89, 0.4);
+        margin-top: 20px;
+    }
+
+    .calendar-link {
+        margin-top: 15px; color: var(--color-oro); text-decoration: none;
+        font-size: 0.75rem; font-family: 'Cinzel'; border-bottom: 1px solid var(--color-oro);
+        padding-bottom: 2px; letter-spacing: 1px; display: inline-block;
     }
 
     .nav-btn {
@@ -144,11 +142,12 @@
 
     @media (max-width: 600px) {
         .timer-card { width: 165px; min-height: 175px; padding: 20px 8px; }
-        .count-num { font-size: 1.3rem; }
         .nav-btn { top: auto; bottom: 30px; transform: none; }
         #prevBtn { left: 10%; } #nextBtn { right: 10%; }
     }
 </style>
+</head>
+<body>
 
 <div id="player" style="display:none"></div>
 
@@ -170,7 +169,7 @@
         <section class="active" style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
             <div class="content-box">
                 <div style="font-family: 'Cinzel'; letter-spacing: 5px; font-size: 0.7rem; color: var(--color-oro);">NUESTRA BODA</div>
-                <h1 class="names">Karina & Hernan</h1>
+                <h1 class="names">Karina & Hernán</h1>
                 <p>"¡Bienvenidos a este gran día!"</p>
             </div>
         </section>
@@ -195,7 +194,15 @@
             <div class="content-box">
                 <img src="https://i.postimg.cc/m24j33WL/Whats_App_Image_2026_02_16_at_12_44_13_(1).jpg" class="story-img-frame" style="transform: rotate(-1deg);">
                 <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">La Promesa</h3>
-                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes que son parte de nuestra vida y nuestra historia."</p>
+                <p>"Deseamos que Dios bendiga nuestra unión, junto a ustedes."</p>
+            </div>
+        </section>
+
+        <section style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
+            <div class="content-box">
+                <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">¡A Celebrar!</h3>
+                <p>"¡Nos vemos pronto para celebrar y crear nuevos recuerdos!"</p>
+                <p style="font-size: 0.7rem; margin-top: 40px; color: var(--color-oro); letter-spacing: 4px;">KARINA & HERNÁN</p>
             </div>
         </section>
 
@@ -211,7 +218,7 @@
                                 <div class="timer-item"><span class="count-num" id="h-civil">00</span><small>H</small></div>
                                 <div class="timer-item"><span class="count-num" id="s-civil">00</span><small>S</small></div>
                             </div>
-                            <a href="https://maps.app.goo.gl/6K2DEUN2sanaZL7F8" target="_blank" class="map-link">COMO LLEGAR 📍</a>
+                            <a href="https://maps.google.com/?cid=727775129375281536&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl5" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                         </div>
                         <div class="timer-card">
                             <h3>IGLESIA</h3>
@@ -221,7 +228,7 @@
                                 <div class="timer-item"><span class="count-num" id="h-iglesia">00</span><small>H</small></div>
                                 <div class="timer-item"><span class="count-num" id="s-iglesia">00</span><small>S</small></div>
                             </div>
-                            <a href="https://maps.app.goo.gl/Y7ozCYiT5zGF3DdH8" target="_blank" class="map-link">COMO LLEGAR 📍</a>
+                            <a href="https://maps.google.com/?cid=727775129375281536&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl6" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                         </div>
                     </div>
                     <div class="timer-card">
@@ -232,18 +239,13 @@
                             <div class="timer-item"><span class="count-num" id="h-salon">00</span><small>H</small></div>
                             <div class="timer-item"><span class="count-num" id="s-salon">00</span><small>S</small></div>
                         </div>
-                        <a href="https://maps.app.goo.gl/xscq1fGka45GGZWBA" target="_blank" class="map-link">COMO LLEGAR 📍</a>
+                        <a href="https://maps.google.com/?cid=727775129375281536&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl7" target="_blank" class="map-link">COMO LLEGAR 📍</a>
                     </div>
                 </div>
-                <a href="https://wa.me/5491162410492?text=¡Hola! Confirmo mi asistencia." class="rsvp-button">CONFIRMAR ASISTENCIA</a>
-            </div>
-        </section>
-
-        <section style="background-image: url('https://i.postimg.cc/ZKmHPPzR/Whats_App_Image_2026_02_16_at_12_49_49.jpg');">
-            <div class="content-box">
-                <h3 style="font-family: 'Cinzel'; color: var(--color-oro);">¡A Celebrar!</h3>
-                <p>"¡Nos vemos pronto para celebrar y crear nuevos recuerdos!"</p>
-                <p style="font-size: 0.7rem; margin-top: 40px; color: var(--color-oro); letter-spacing: 4px;">KARINA & HERNAN</p>
+                
+                <a href="https://forms.gle/uCKy2T81mchtQkZT8" target="_blank" class="rsvp-button">CONFIRMAR ASISTENCIA</a>
+                <br>
+                <a href="https://calendar.app.google/VDy6vzXuRZu4WNzW6" target="_blank" class="calendar-link">AÑADIR A MI CALENDARIO 📅</a>
             </div>
         </section>
 
@@ -317,3 +319,5 @@
         update("April 19, 2026 12:00:00", "salon");
     }
 </script>
+</body>
+</html>
